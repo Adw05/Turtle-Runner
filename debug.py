@@ -1,11 +1,17 @@
-from enviroment import SnakeEnv
-from scoreboard import Scoreboard
+from turtle import Turtle, Screen
+from components.food import Food
+import time
 
 
-board=Scoreboard()
-board.add_score()
-print(board.score)
-env=SnakeEnv()
+screen = Screen()
+screen.setup(width=600, height=600)
+screen.bgcolor("black")
+screen.listen()
+food=Food()
+screen.onkey(food.up(),"Up")
+screen.onkey(food.down(),"Down")
+screen.onkey(food.p_right(),"Right")
+screen.onkey(food.p_left(),"Left")
 
-state=env.get_state()
-print(len(state))
+
+screen.exitonclick()

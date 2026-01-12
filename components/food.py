@@ -15,15 +15,24 @@ class Food(Turtle):
         random_cordy=random.randint(-210,210)
         self.goto(random_cordx,random_cordy)
 
-    def move_food(self):
+    '''def move_food(self):
         random.choice([
             self.forward,
             self.left,
             self.right
         ])(10)
-
+'''
     def add_escape(self):
         self.escape_count+=1
+    def up(self):
+        self.forward(10)
+    def down(self):
+        self.backward(10)
+    def p_left(self):
+        self.left(90)
+    def p_right(self):
+        self.right(270)
+
 
 
     
