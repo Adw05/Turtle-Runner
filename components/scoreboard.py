@@ -1,4 +1,5 @@
 from turtle import Turtle
+import time
 FONT="Arial"
 class Scoreboard(Turtle):
     def __init__(self):
@@ -11,7 +12,7 @@ class Scoreboard(Turtle):
         self.update_scoreboard()
     def update_scoreboard(self):
         self.clear()
-        self.write(f"Score: {self.score}",align="Center",font=(FONT,12,"normal"))
+        self.write(f"Time: {self.score}",align="Center",font=(FONT,12,"normal"))
 
     def add_score(self):
         self.score+=1

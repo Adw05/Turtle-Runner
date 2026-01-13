@@ -21,6 +21,7 @@ class SnakeEnv:
         self.screen.onkey(self.food.move_right, "Right")
         self.scoreboard = Scoreboard()
         self.done = False
+        self.start_time=time.time()
 
     def reset(self):
         self.snake.reset()  # Assuming you added a reset method to snake.py, or recreate it:
@@ -32,6 +33,7 @@ class SnakeEnv:
         self.scoreboard = Scoreboard()
         self.food.refresh()
         self.done = False
+        self.start_time=time.time()
         return self.get_state()
 
     def step(self, action):
@@ -68,12 +70,16 @@ class SnakeEnv:
         if self.snake.head.distance(self.food) < 15:
             self.food.refresh()
             self.snake.extend()
-            self.scoreboard.score += 1  # Update internal score
+            #self.scoreboard.score += 1  # Update internal score
             self.scoreboard.update_scoreboard()
             reward = 10
 
         # 3. Optional: Time penalty to prevent looping
         reward -= 0.01
+
+        elapsed = time.time() - self.start_time
+        self.scoreboard.score = round(elapsed, 1)
+        self.scoreboard.update_scoreboard()
 
         self.screen.update()
 
