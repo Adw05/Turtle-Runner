@@ -31,7 +31,7 @@ class Food(Turtle):
     def p_left(self):
         self.left(90)
     def p_right(self):
-        self.right(270)
+        self.right(90)
 
 
 

@@ -6,12 +6,13 @@ import time
 screen = Screen()
 screen.setup(width=600, height=600)
 screen.bgcolor("black")
-screen.listen()
+screen.tracer(0)
 food=Food()
-screen.onkey(food.up(),"Up")
-screen.onkey(food.down(),"Down")
-screen.onkey(food.p_right(),"Right")
-screen.onkey(food.p_left(),"Left")
+screen.listen()
 
-
-screen.exitonclick()
+screen.onkey(food.p_right,"Right")
+screen.onkey(food.p_left,"Left")
+while True:
+    screen.update()
+    time.sleep(0.1)
+    food.forward(10)
