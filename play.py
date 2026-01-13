@@ -1,6 +1,7 @@
 import time
 from agent import Agent
 from enviroment import SnakeEnv
+from components.food import Food
 
 
 def play():

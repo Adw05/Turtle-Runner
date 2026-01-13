@@ -24,13 +24,12 @@ class Food(Turtle):
 '''
     def add_escape(self):
         self.escape_count+=1
-    def up(self):
+    def move_forward(self):
         self.forward(10)
-    def down(self):
-        self.backward(10)
-    def p_left(self):
+
+    def move_left(self):
         self.left(90)
-    def p_right(self):
+    def move_right(self):
         self.right(90)
 
 

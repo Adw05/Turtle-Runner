@@ -16,6 +16,9 @@ class SnakeEnv:
 
         self.snake = Snake()
         self.food = Food()
+        self.screen.listen()
+        self.screen.onkey(self.food.move_left,"Left")
+        self.screen.onkey(self.food.move_right, "Right")
         self.scoreboard = Scoreboard()
         self.done = False
 
@@ -49,7 +52,7 @@ class SnakeEnv:
         # if action == 0, we do nothing (keep going straight)
 
         self.snake.move()
-        self.food.move_food() #Not learned during training
+        self.food.move_forward() #Not learned during training
 
         # --- Rewards & Game Over Logic ---
         reward = 0
