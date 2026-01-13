@@ -67,12 +67,16 @@ class SnakeEnv:
             return self.get_state(), reward, game_over, {}
 
         # 2. Food Logic
+
         if self.snake.head.distance(self.food) < 15:
             self.food.refresh()
-            self.snake.extend()
+            #self.snake.extend()
             #self.scoreboard.score += 1  # Update internal score
-            self.scoreboard.update_scoreboard()
+            #self.scoreboard.update_scoreboard()
             reward = 10
+
+        if self.scoreboard.score%20==0:
+            self.snake.extend()
 
         # 3. Optional: Time penalty to prevent looping
         reward -= 0.01
