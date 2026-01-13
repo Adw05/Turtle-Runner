@@ -69,6 +69,9 @@ class SnakeEnv:
         # 2. Food Logic
 
         if self.snake.head.distance(self.food) < 15:
+            self.scoreboard.lives-=1
+            if self.scoreboard.lives<=0:
+                game_over=True
             self.food.refresh()
             #self.snake.extend()
             #self.scoreboard.score += 1  # Update internal score

@@ -5,14 +5,16 @@ class Scoreboard(Turtle):
     def __init__(self):
         super().__init__()
         self.score=0
+        self.lives = 4
         self.color("white")
         self.penup()
         self.goto(0,280)
         self.hideturtle()
         self.update_scoreboard()
+
     def update_scoreboard(self):
         self.clear()
-        self.write(f"Time: {self.score}",align="Center",font=(FONT,12,"normal"))
+        self.write(f"Time: {self.score} Lives:{self.lives}",align="Center",font=(FONT,12,"normal"))
 
     def add_score(self):
         self.score+=1
