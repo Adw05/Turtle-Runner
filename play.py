@@ -9,7 +9,7 @@ def play():
     agent = Agent(state_size=14, action_size=3)
 
     # Load the model
-    agent.load('./final_model.pth')
+    agent.load('./smart_modelv2.pth')
 
     # Disable randomness
     agent.epsilon = 0
@@ -26,12 +26,15 @@ def play():
         if done:
             head = env.snake.head
             score = env.scoreboard.score
+            lives=env.scoreboard.lives
 
             if (head.xcor() > 280 or head.xcor() < -280 or
                     head.ycor() > 280 or head.ycor() < -280):
                 print(f"VICTORY!: Snake hit wall")
+            elif lives==0:
+                print(f"DEFEAT: out of lives")
             else:
-                print(f"VICTORY!: Tail bitten")
+                print(f"VICTORY: Snake bit tail")
 
             print(f"Final Score: {score}")
 

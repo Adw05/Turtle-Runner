@@ -38,7 +38,7 @@ def train():
             plot_mean_scores.append(mean_score)
             target_score=1.1
             if mean_score>=target_score:
-                agent.save(file_name='final_model.pth')
+                agent.save(file_name='smart_model.pth')
                 print(f"Target reached! Final mean score:{mean_score}")
                 break
 
